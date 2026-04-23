@@ -2,6 +2,7 @@ package com.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.Entity.User;
@@ -103,6 +104,40 @@ public class UserDao {
 		 return "User Delete Successfully";
 	 }
 	
+	 
+	 
+	 public User getUser(String string) {
+		 
+		 User user=null;
+		 try {
+			 
+			PreparedStatement pst = con.prepareStatement("select * from user where email=?");
+			
+			pst.setString(1, string);
+			
+			ResultSet rs = pst.executeQuery();
+			 
+			 while (rs.next()) {
+				
+				String username=rs.getString("name"); 
+				String password=rs.getString("password");
+				String email=rs.getString("email");
+				String gender=rs.getString("gender");
+				String dob=rs.getString("dob");
+				float mobileNo=rs.getFloat("mobileNo");
+				String address=rs.getString("address");
+				int age=rs.getInt("age");
+				
+				 user=new User(username, password, email, gender, dob, mobileNo, address, age);
+			}
+		 }
+		 catch (SQLException e) {
+			
+			e.printStackTrace();
+		 }
+		 
+		 return user;
+	 }
 	
 
 }

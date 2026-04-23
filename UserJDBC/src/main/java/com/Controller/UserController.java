@@ -26,5 +26,11 @@ public class UserController {
 		
 		return service.delete(string);
 	}
+	
+	
+	public User get(String string) {
+		
+		return service.get(string);
+	}
 
 }

@@ -27,6 +27,12 @@ public class UserService {
 	}
 	
 	
+	public User get(String string) {
+		
+		return dao.getUser(string);
+	}
+	
+	
 	
 	
 	

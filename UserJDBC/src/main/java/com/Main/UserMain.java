@@ -135,6 +135,35 @@ public class UserMain {
 			}
 			
 			
+			if (no == 4) {
+				
+				
+				System.out.println("Enter Email =");
+				String email=sc.next();
+				
+				
+				try {
+					
+					User user = controller.get(email);
+					
+					System.out.println("User Name = "+user.getUsername());
+					System.out.println("Password  = "+user.getPassword());
+					System.out.println("Email     = "+user.getEmail());
+					System.out.println("Gender    = "+user.getGender());
+					System.out.println("DOB       = "+user.getDob());
+					System.out.println("Mobile No = "+user.getMobileNo());
+					System.out.println("Address   = "+user.getAddress());
+					System.out.println("Age       = "+user.getAge());
+					
+				}
+				catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+			break;	
+			}
+			
 			
 			
 			
