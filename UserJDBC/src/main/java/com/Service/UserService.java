@@ -15,6 +15,12 @@ public class UserService {
 	}
 	
 	
+	public String update(User user) {
+		
+		return dao.updateUser(user);
+	}
+	
+	
 	
 	
 	

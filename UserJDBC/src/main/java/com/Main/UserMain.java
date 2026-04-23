@@ -72,6 +72,48 @@ public class UserMain {
 			}
 			
 			
+			if (no == 2) {
+				
+				
+				System.out.println("Enter User Name = ");
+				String username=sc.next();
+				
+				System.out.println("Enter Password =");
+				String password=sc.next();
+				
+				System.out.println("Enter Email =");
+				String email=sc.next();
+				
+				System.out.println("Enter Gender =");
+				String gender=sc.next();
+				
+				System.out.println("Enter DOB =");
+				String dob=sc.next();
+				
+				System.out.println("Enter Mobile No =");
+				float mobileNo=sc.nextFloat();
+				
+				System.out.println("Enter Address =");
+				String address=sc.next();
+				
+				System.out.println("Enter Age =");
+				int age=sc.nextInt();
+				
+				
+				try {
+					
+					User u=new User(username, password, email, gender, dob, mobileNo, address, age);
+					
+				    System.out.println(controller.update(u));
+				}
+				catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+			break;	
+			}
+			
 			
 			
 		}

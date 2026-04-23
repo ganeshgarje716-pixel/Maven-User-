@@ -56,6 +56,33 @@ public class UserDao {
 		 
 		 return "User Insert Successfully";
 	 }
+	 
+	 
+	 
+	 public String updateUser(User user) {
+		 
+		  try {
+			  
+			PreparedStatement pst = con.prepareStatement("update user set name=?, password=?, gender=?, dob=?, mobileNo=?, address=?, age=? where email=?");
+			
+			pst.setString(1, user.getUsername());
+			pst.setString(2, user.getPassword());
+			pst.setString(3, user.getGender());
+			pst.setString(4, user.getDob());
+			pst.setFloat(5, user.getMobileNo());
+			pst.setString(6, user.getAddress());
+			pst.setInt(7, user.getAge());
+			pst.setString(8, user.getEmail());
+			
+			pst.executeUpdate();
+		  } 
+		  catch (SQLException e) {
+			
+			e.printStackTrace();
+		  }
+		 
+		  return "User Update Successfully";
+	 }
 	
 	
 

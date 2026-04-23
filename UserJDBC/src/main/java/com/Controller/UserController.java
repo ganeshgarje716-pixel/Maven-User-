@@ -14,5 +14,11 @@ public class UserController {
 		
 		return service.insert(user);
 	}
+	
+	
+	public String update(User user) {
+		
+		return service.update(user);
+	}
 
 }
