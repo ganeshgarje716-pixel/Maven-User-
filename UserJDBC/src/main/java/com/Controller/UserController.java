@@ -1,5 +1,6 @@
 package com.Controller;
 
+import java.util.ArrayList;
 import com.Entity.User;
 import com.Service.UserService;
 
@@ -31,6 +32,12 @@ public class UserController {
 	public User get(String string) {
 		
 		return service.get(string);
+	}
+	
+	
+	public ArrayList<User> getAll() {
+		
+		return service.getAll();
 	}
 
 }

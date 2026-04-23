@@ -1,5 +1,6 @@
 package com.Service;
 
+import java.util.ArrayList;
 import com.Dao.UserDao;
 import com.Entity.User;
 
@@ -30,6 +31,12 @@ public class UserService {
 	public User get(String string) {
 		
 		return dao.getUser(string);
+	}
+	
+	
+	public ArrayList<User> getAll() {
+		
+		return dao.getAllUser();
 	}
 	
 	

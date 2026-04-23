@@ -1,9 +1,9 @@
 package com.Main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.Controller.UserController;
-import com.Dao.UserDao;
 import com.Entity.User;
 
 public class UserMain {
@@ -161,6 +161,46 @@ public class UserMain {
 					e.printStackTrace();
 				}
 				
+			break;	
+			}
+			
+			
+			
+			if (no == 5) {
+				
+				
+				try {
+					
+					ArrayList<User> all = controller.getAll();
+					
+					for (User users : all) {
+						
+						System.out.println("User Name = "+users.getUsername());
+						System.out.println("Password  = "+users.getPassword());
+						System.out.println("Email     = "+users.getEmail());
+						System.out.println("Gender    = "+users.getGender());
+						System.out.println("DOB       = "+users.getDob());
+						System.out.println("Mobile No = "+users.getMobileNo());
+						System.out.println("Address   = "+users.getAddress());
+						System.out.println("Age       = "+users.getAge());
+						
+						System.out.println("======================================");
+						
+					}
+				}
+				catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+			break;	
+			}
+			
+			
+            else if (no == 6) {
+				
+				System.out.println("Thank You");
+			
 			break;	
 			}
 			

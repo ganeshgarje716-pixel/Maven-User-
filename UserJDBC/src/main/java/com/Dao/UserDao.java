@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import com.Entity.User;
 import com.jdbcConnection.JDBCUtil;
 
@@ -137,6 +138,40 @@ public class UserDao {
 		 }
 		 
 		 return user;
+	 }
+	 
+	 
+	 
+public ArrayList<User> getAllUser() {
+		 
+	 ArrayList<User> users=new ArrayList<User>();		 try {
+			 
+			PreparedStatement pst = con.prepareStatement("select * from user");
+			
+			ResultSet rs = pst.executeQuery();
+			 
+			 while (rs.next()) {
+				
+				String username=rs.getString("name"); 
+				String password=rs.getString("password");
+				String email=rs.getString("email");
+				String gender=rs.getString("gender");
+				String dob=rs.getString("dob");
+				float mobileNo=rs.getFloat("mobileNo");
+				String address=rs.getString("address");
+				int age=rs.getInt("age");
+				
+				 User user=new User(username, password, email, gender, dob, mobileNo, address, age);
+				 
+				  users.add(user);
+			}
+		 }
+		 catch (SQLException e) {
+			
+			e.printStackTrace();
+		 }
+		 
+		 return users;
 	 }
 	
 
