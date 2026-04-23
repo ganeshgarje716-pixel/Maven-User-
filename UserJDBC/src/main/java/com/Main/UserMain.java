@@ -115,6 +115,28 @@ public class UserMain {
 			}
 			
 			
+			if (no == 3) {
+				
+				
+				System.out.println("Enter Email =");
+				String email=sc.next();
+				
+				
+				try {
+					
+					System.out.println(controller.delete(email));
+				}
+				catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+			   
+			break;	
+			}
+			
+			
+			
+			
 			
 		}
 		

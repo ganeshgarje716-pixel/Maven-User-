@@ -21,6 +21,12 @@ public class UserService {
 	}
 	
 	
+	public String delete(String string) {
+		
+		return dao.deleteUser(string);
+	}
+	
+	
 	
 	
 	

@@ -20,5 +20,11 @@ public class UserController {
 		
 		return service.update(user);
 	}
+	
+	
+	public String delete(String string) {
+		
+		return service.delete(string);
+	}
 
 }

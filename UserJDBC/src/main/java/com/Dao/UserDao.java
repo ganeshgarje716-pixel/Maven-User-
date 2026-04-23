@@ -83,6 +83,25 @@ public class UserDao {
 		 
 		  return "User Update Successfully";
 	 }
+	 
+	 
+	 public String deleteUser(String string) {
+		 
+		 try {
+			 
+			PreparedStatement pst = con.prepareStatement("delete from user where email=?");
+			
+			pst.setString(1, string);
+			
+			pst.executeUpdate();
+		 }
+		 catch (SQLException e) {
+			
+			e.printStackTrace();
+		 }
+		 
+		 return "User Delete Successfully";
+	 }
 	
 	
 
