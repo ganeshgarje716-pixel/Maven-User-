@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.Entity.User;
 import com.jdbcConnection.JDBCUtil;
 
 public class UserDao {
@@ -12,21 +13,49 @@ public class UserDao {
 	 static Connection con = JDBCUtil.createConnection();
 	
 	
-	public static  void createTable() {
-		
-		try {
+//	public static  void createTable() {
+//		
+//		try {
+//			
+//			PreparedStatement pst = con.prepareStatement("create table user (name varchar(34), password varchar(34), email varchar(34), gender varchar(34), dob date, mobileNo float, address varchar(34), age int)");
+//			
+//			pst.execute();
+//			
+//			System.out.println("Create Table");
+//		} 
+//		catch (SQLException e) {
+//			
+//			e.printStackTrace();
+//		}
+//	}
+	 
+	 
+	 
+	 
+	 public String insertUser (User user) {
+		 
+		 try {
+			 
+			PreparedStatement pst = con.prepareStatement("insert into user values(?,?,?,?,?,?,?,?)");
 			
-			PreparedStatement pst = con.prepareStatement("create table user (name varchar(34), password varchar(34), email varchar(34), gender varchar(34), dob date, mobileNo float, address varchar(34), age int)");
+			pst.setString(1, user.getUsername());
+			pst.setString(2, user.getPassword());
+			pst.setString(3, user.getEmail());
+			pst.setString(4, user.getGender());
+			pst.setString(5, user.getDob());
+			pst.setFloat(6, user.getMobileNo());
+			pst.setString(7, user.getAddress());
+			pst.setInt(8, user.getAge());
 			
-			pst.execute();
-			
-			System.out.println("Create Table");
-		} 
-		catch (SQLException e) {
+			pst.executeUpdate();
+		 } 
+		 catch (SQLException e) {
 			
 			e.printStackTrace();
-		}
-	}
+		 }
+		 
+		 return "User Insert Successfully";
+	 }
 	
 	
 
