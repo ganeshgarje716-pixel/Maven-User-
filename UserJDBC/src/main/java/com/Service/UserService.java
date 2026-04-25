@@ -1,8 +1,13 @@
 package com.Service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import com.Dao.UserDao;
 import com.Entity.User;
+import com.Exception.SomthingWentWrongException;
+import com.Exception.UserIsNullException;
+import com.Exception.UserNotFoundException;
+import com.Exception.UsersNotFoundException;
 
 public class UserService {
 	
@@ -12,31 +17,66 @@ public class UserService {
 	
 	public String insert(User user) {
 		
-		return dao.insertUser(user);
+		
+		if (user == null) {
+			
+			throw new UserIsNullException("User is Null");
+		}
+		 String msg = dao.insertUser(user);
+		 
+		 return msg;
 	}
 	
 	
 	public String update(User user) {
 		
-		return dao.updateUser(user);
+		String msg = dao.updateUser(user);
+		
+		if (msg == null) {
+			
+			throw new SomthingWentWrongException("Cheak your SQL Query Again");
+		}
+		 
+		 return msg;
 	}
 	
 	
-	public String delete(String string) {
+	public String delete(String string) throws SQLException {
 		
-		return dao.deleteUser(string);
+		 String msg = dao.deleteUser(string);
+		 
+		 if (msg == null) {
+			 
+			throw new SQLException("Id Not Found");
+		}
+		 
+		 return msg;
 	}
 	
 	
 	public User get(String string) {
 		
-		return dao.getUser(string);
+		 User user = dao.getUser(string);
+		 
+		 if (user == null) {
+			 
+			throw new UserNotFoundException("User Not Found With Email = "+string);
+		}
+		 
+		 return user;
 	}
 	
 	
 	public ArrayList<User> getAll() {
 		
-		return dao.getAllUser();
+		 ArrayList<User> User = dao.getAllUser();
+		 
+		 if (User.isEmpty()) {
+			 
+			throw new UsersNotFoundException("No User Present in DB");
+		}
+		 
+		 return User;
 	}
 	
 	

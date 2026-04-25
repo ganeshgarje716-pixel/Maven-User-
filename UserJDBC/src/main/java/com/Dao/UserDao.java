@@ -49,14 +49,19 @@ public class UserDao {
 			pst.setString(7, user.getAddress());
 			pst.setInt(8, user.getAge());
 			
-			pst.executeUpdate();
+			int value = pst.executeUpdate();
+			
+			if (value > 0) {
+				
+				 return "User Insert Successfully";
+			}
 		 } 
 		 catch (SQLException e) {
 			
 			e.printStackTrace();
 		 }
 		 
-		 return "User Insert Successfully";
+		return null;
 	 }
 	 
 	 
@@ -76,14 +81,19 @@ public class UserDao {
 			pst.setInt(7, user.getAge());
 			pst.setString(8, user.getEmail());
 			
-			pst.executeUpdate();
+			int value = pst.executeUpdate();
+			
+			if (value > 0) {
+				
+				return "User Update Successfully";
+			}
 		  } 
 		  catch (SQLException e) {
 			
 			e.printStackTrace();
 		  }
 		 
-		  return "User Update Successfully";
+		  return null;
 	 }
 	 
 	 
@@ -95,14 +105,19 @@ public class UserDao {
 			
 			pst.setString(1, string);
 			
-			pst.executeUpdate();
+			int value = pst.executeUpdate();
+			
+			if (value == 0) {
+				
+				 return "User Delete Successfully";
+			}
 		 }
 		 catch (SQLException e) {
 			
 			e.printStackTrace();
 		 }
 		 
-		 return "User Delete Successfully";
+		return null;
 	 }
 	
 	 

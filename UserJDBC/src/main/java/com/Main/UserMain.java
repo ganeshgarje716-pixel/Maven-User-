@@ -65,6 +65,7 @@ public class UserMain {
 				} 
 				catch (Exception e) {
 					
+					System.out.println(e.getMessage());
 					e.printStackTrace();
 				}
 				
@@ -108,6 +109,7 @@ public class UserMain {
 				}
 				catch (Exception e) {
 					
+					System.out.println(e.getMessage());
 					e.printStackTrace();
 				}
 				
@@ -128,6 +130,7 @@ public class UserMain {
 				}
 				catch (Exception e) {
 					
+					System.out.println(e.getMessage());
 					e.printStackTrace();
 				}
 			   
@@ -158,6 +161,7 @@ public class UserMain {
 				}
 				catch (Exception e) {
 					
+					System.out.println(e.getMessage());
 					e.printStackTrace();
 				}
 				
@@ -190,6 +194,7 @@ public class UserMain {
 				}
 				catch (Exception e) {
 					
+					System.out.println(e.getMessage());
 					e.printStackTrace();
 				}
 				
