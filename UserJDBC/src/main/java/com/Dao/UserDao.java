@@ -157,9 +157,11 @@ public class UserDao {
 	 
 	 
 	 
-public ArrayList<User> getAllUser() {
+     public ArrayList<User> getAllUser() {
 		 
-	 ArrayList<User> users=new ArrayList<User>();		 try {
+	      ArrayList<User> users=new ArrayList<User>();		
+	 
+	      try {
 			 
 			PreparedStatement pst = con.prepareStatement("select * from user");
 			
